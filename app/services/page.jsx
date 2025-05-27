@@ -1,6 +1,21 @@
 import Link from "next/link";
 
-export default function ServicesList() {
+export default async function ServicesList() {
+  const services = await fetch("http://localhost:3000/api/services").then(
+    (res) => res.json()
+  );
+
+  return (
+    <ul>
+      {services.map((service) => (
+        <li key={service.id}>
+          <Link href={`/services/${service.id}`}>{service.name}</Link>
+        </li>
+      ))}
+    </ul>
+  );
+}
+/***export default function ServicesList() {
   return (
     <ul>
       <li>
@@ -14,4 +29,4 @@ export default function ServicesList() {
       </li>
     </ul>
   );
-}
+}***/
