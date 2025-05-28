@@ -1,4 +1,4 @@
-import Header from "../components/Header";
+import LayoutWrapper from "../components/LayoutWrapper";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fr" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className="antialiased">
-        <Header /> {children}{" "}
+        <LayoutWrapper> {children} </LayoutWrapper>{" "}
       </body>{" "}
     </html>
   );
