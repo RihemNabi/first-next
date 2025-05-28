@@ -31,16 +31,13 @@ export default function Home() {
             Contactez - nous{" "}
           </a>{" "}
           <a
-            href="mailto:rihem@example.com"
+            href="/autre"
             className="bg-pink-100 hover:bg-pink-200 text-pink-700 py-2 px-4 rounded-lg"
           >
             Autres{" "}
           </a>{" "}
         </div>{" "}
-        <p className="text-sm text-gray-500 mt-6">
-          {" "}
-          🌷 Merci de visiter ma carte pro{" "}
-        </p>{" "}
+        <p className="text-sm text-gray-500 mt-6"> 🌷 Merci de votre visite!</p>{" "}
       </div>{" "}
     </main>
   );
