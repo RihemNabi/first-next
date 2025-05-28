@@ -1,4 +1,4 @@
-"use client"; // très important pour utiliser le hook côté client
+"use client";
 
 import { usePathname } from "next/navigation";
 import Header from "./Header";
