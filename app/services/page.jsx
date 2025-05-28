@@ -8,8 +8,11 @@ export default async function ServicesList() {
   return (
     <ul>
       {services.map((service) => (
-        <li key={service.id}>
-          <Link href={`/services/${service.id}`}>{service.name}</Link>
+        <li key={service.id} className="mb-4">
+          <Link href={`/services/${service.id}`}>
+            <h3 className="text-lg font-bold">{service.title}</h3>
+          </Link>
+          <p>{service.description}</p>
         </li>
       ))}
     </ul>

@@ -1,11 +1,12 @@
 import ServiceAction from "../../../components/serviceAction";
+import { services } from "../../../data/services";
+export default function ServicesPage({ params }) {
+  const service = services.find((s) => s.id == params.id);
 
-export default function ArticlePage({ params }) {
-  const { id } = params;
   return (
     <div>
-      <h2>Détail du service {id}</h2>
-      <p>Voici les infos liées au service {id}</p>
+      <h2>{service.title}</h2>
+      <p>{service.description}</p>
       <ServiceAction />
     </div>
   );
