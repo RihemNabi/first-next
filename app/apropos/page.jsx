@@ -15,8 +15,8 @@ export default function AproposPage() {
         <p className="text-gray-700 mb-4">Les objectifs principaux sont :</p>
         <ul className="text-left text-gray-700 list-disc list-inside mb-4">
           <li>
-            Apprendre à utiliser <strong>Next.js</strong> pour structurer une
-            application
+            Apprendre à utiliser <strong>Next.js</strong> et{" "}
+            <strong>Node.js </strong>pour structurer une application
           </li>
           <li>
             Styliser avec <strong>Tailwind CSS</strong> pour un rendu moderne
