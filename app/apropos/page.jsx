@@ -26,7 +26,7 @@ export default function AproposPage() {
           </li>
         </ul>
         <p className="text-gray-600 italic">
-          Ce mini-projet est un reflet de mon apprentissage quotidien.
+          🌸 Ce mini-projet est un espace d’apprentissage et d’expérimentation
         </p>
       </div>
     </div>
