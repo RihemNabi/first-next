@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import ServiceCard from "../../components/serviceCard";
 
 export default function ServicesPage() {
   const [services, setServices] = useState([]);
@@ -25,18 +26,11 @@ export default function ServicesPage() {
       {error ? (
         <p className="text-red-500">{error}</p>
       ) : (
-        <ul>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service) => (
-            <li key={service.id} className="mb-4">
-              <Link href={`/services/${service.id}`}>
-                <h3 className="text-lg font-semibold text-pink-700 hover:underline">
-                  {service.title}
-                </h3>
-              </Link>
-              <p className="text-gray-600">{service.description}</p>
-            </li>
+            <ServiceCard key={service.id} service={service} />
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );
