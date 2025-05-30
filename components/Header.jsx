@@ -34,6 +34,12 @@ export default function Header() {
           <Link href="/autre" className="text-white hover:text-pink-100">
             Autres
           </Link>
+          <Link
+            href="/administration"
+            className="text-white hover:text-pink-100"
+          >
+            Admin
+          </Link>
         </nav>
       </div>
 
