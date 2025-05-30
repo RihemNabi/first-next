@@ -1,29 +1,23 @@
-// app/api/test/route.js
-import clientPromise from "../../../lib/mongodb";
+import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
+    // Lazy import de clientPromise (PAS au niveau global !)
+    const clientPromise = (await import("@/lib/mongodb")).default;
     const client = await clientPromise;
-    const db = client.db(); // par défaut
+    const db = client.db("MiniProjetDB");
+
     const collections = await db.listCollections().toArray();
 
-    return new Response(
-      JSON.stringify({ message: "Connexion réussie ✔️", collections }),
-      {
-        status: 200,
-        headers: { "Content-Type": "application/json" },
-      }
-    );
+    return NextResponse.json({
+      message: "Connexion réussie ✅",
+      collections,
+    });
   } catch (error) {
-    return new Response(
-      JSON.stringify({
-        message: "Erreur de connexion ❌",
-        error: error.message,
-      }),
-      {
-        status: 500,
-        headers: { "Content-Type": "application/json" },
-      }
+    console.error("Erreur de connexion MongoDB:", error);
+    return NextResponse.json(
+      { message: "Erreur de connexion ❌" },
+      { status: 500 }
     );
   }
 }
