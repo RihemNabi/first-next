@@ -1,0 +1,39 @@
+{
+  "welcome": "Bienvenue sur ma page d'accueil",
+  "about": "À propos",
+  "services": "Nos services",
+  "contact": "Contactez-nous",
+  "others": "Autres",
+  "thank_you": "🌷 Merci de votre visite !",
+  "project_title": "Mini - Projet",
+  "nav_home": "Accueil",
+  "nav_about": "À propos",
+  "nav_services": "Services",
+  "nav_contact": "Contact",
+  "nav_others": "Autres",
+  "nav_admin": "Admin",
+  "about_title": "À propos du projet",
+  "about_intro": "Ce mini-projet a été réalisé dans le cadre de mon stage chez NA Consulting, dans le but de me familiariser avec les technologies modernes du développement web.",
+  "about_objectives": "Les objectifs principaux sont :",
+  "about_goal_1": "Apprendre à utiliser Next.js et Node.js pour structurer une application",
+  "about_goal_2": "Styliser avec Tailwind CSS pour un rendu moderne",
+  "about_goal_3": "Gérer le projet avec GitHub",
+  "about_footer": "🌸 Ce mini-projet est un espace d’apprentissage et d’expérimentation",
+  "services_title": "Nos Services",
+  "fetch_error": "Impossible de charger les services",
+  "services_data": {
+    "1": {
+      "title": "Développement Web",
+      "description": "Création de sites web modernes."
+    },
+    "2": {
+      "title": "Maintenance",
+      "description": "Support technique continu."
+    },
+    "3": {
+      "title": "Finance",
+      "description": "Service financier."
+    },
+    "cta": "Réserver ce service"
+  }
+}

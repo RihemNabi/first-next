@@ -1,9 +1,13 @@
 "use client";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useTranslation } from "react-i18next";
+import NavLink from "./NavLink";
 import Link from "next/link";
 import { useState } from "react";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const { t } = useTranslation();
 
   return (
     <header className="bg-pink-500 shadow-md">
@@ -17,50 +21,30 @@ export default function Header() {
           ☰
         </button>
 
-        {/* Menu pour grands écrans */}
+        {/* Menu grand écran */}
         <nav className="hidden md:flex gap-6">
-          <Link href="/" className="text-white hover:text-pink-100">
-            Accueil
-          </Link>
-          <Link href="/apropos" className="text-white hover:text-pink-100">
-            À propos
-          </Link>
-          <Link href="/services" className="text-white hover:text-pink-100">
-            Services
-          </Link>
-          <Link href="/contact" className="text-white hover:text-pink-100">
-            Contact
-          </Link>
-          <Link href="/autre" className="text-white hover:text-pink-100">
-            Autres
-          </Link>
-          <Link
-            href="/administration"
-            className="text-white hover:text-pink-100"
-          >
-            Admin
-          </Link>
+          <NavLink href="/">{t("nav_home")}</NavLink>
+          <NavLink href="/apropos">{t("nav_about")}</NavLink>
+          <NavLink href="/services">{t("nav_services")}</NavLink>
+          <NavLink href="/contact">{t("nav_contact")}</NavLink>
+          <NavLink href="/autre">{t("nav_others")}</NavLink>
+          <NavLink href="/administration">{t("nav_admin")}</NavLink>
+          <LanguageSwitcher />
         </nav>
       </div>
 
-      {/* Menu mobile visible quand isOpen = true */}
+      {/* Menu mobile */}
       {isOpen && (
         <div className="md:hidden px-6 pb-4 flex flex-col gap-2 bg-pink-400">
-          <Link href="/" className="text-white hover:text-pink-100">
-            Accueil
-          </Link>
-          <Link href="/apropos" className="text-white hover:text-pink-100">
-            À propos
-          </Link>
-          <Link href="/services" className="text-white hover:text-pink-100">
-            Services
-          </Link>
-          <Link href="/contact" className="text-white hover:text-pink-100">
-            Contact
-          </Link>
-          <Link href="/autre" className="text-white hover:text-pink-100">
-            Autres
-          </Link>
+          <NavLink href="/">{t("nav_home")}</NavLink>
+          <NavLink href="/apropos">{t("nav_about")}</NavLink>
+          <NavLink href="/services">{t("nav_services")}</NavLink>
+          <NavLink href="/contact">{t("nav_contact")}</NavLink>
+          <NavLink href="/autre">{t("nav_others")}</NavLink>
+          <NavLink href="/administration">{t("nav_admin")}</NavLink>
+          <div className="pt-2">
+            <LanguageSwitcher />
+          </div>
         </div>
       )}
     </header>

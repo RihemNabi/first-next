@@ -1,0 +1,39 @@
+{
+  "welcome": "Welcome to my homepage",
+  "about": "About",
+  "services": "Our services",
+  "contact": "Contact us",
+  "others": "Others",
+  "thank_you": "🌷 Thank you for visiting!",
+  "project_title": "Mini - Project",
+  "nav_home": "Home",
+  "nav_about": "About",
+  "nav_services": "Services",
+  "nav_contact": "Contact",
+  "nav_others": "Others",
+  "nav_admin": "Admin",
+  "about_title": "About the project",
+  "about_intro": "This mini-project was carried out as part of my internship at NA Consulting to get familiar with modern web technologies.",
+  "about_objectives": "The main goals are:",
+  "about_goal_1": "Learn to use Next.js and Node.js to structure an application",
+  "about_goal_2": "Style using Tailwind CSS for a modern UI",
+  "about_goal_3": "Manage the project with GitHub",
+  "about_footer": "🌸 This mini-project is a space for learning and experimentation",
+  "services_title": "Our Services",
+  "fetch_error": "Failed to load services",
+  "services_data": {
+    "1": {
+      "title": "Web Development",
+      "description": "Creating modern websites."
+    },
+    "2": {
+      "title": "Maintenance",
+      "description": "Ongoing technical support."
+    },
+    "3": {
+      "title": "Finance",
+      "description": "Financial service."
+    },
+    "cta": "Book this service"
+  }
+}

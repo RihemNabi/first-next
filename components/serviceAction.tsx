@@ -3,20 +3,20 @@
 import { useState } from "react";
 
 export default function ServiceAction() {
-  const [envoyé, setEnvoyé] = useState(false);
+  const [sent, setSent] = useState<boolean>(false);
 
   return (
     <div className="mt-4">
-      {envoyé ? (
+      {sent ? (
         <p className="text-green-400">
           ✅ Votre demande a été enregistrée ! nous allons vous contacter{" "}
         </p>
       ) : (
         <button
-          className="bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-300"
-          onClick={() => setEnvoyé(true)}
+          className="bg-pink-500 text-white px-6 py-3 rounded-lg shadow hover:bg-pink-400 hover:scale-105 transition-all duration-200"
+          onClick={() => setSent(true)}
         >
-          Je veux réserver ce service
+          Réserver ce service
         </button>
       )}
     </div>
