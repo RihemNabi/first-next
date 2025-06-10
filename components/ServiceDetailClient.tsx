@@ -8,9 +8,9 @@ interface Props {
   service: Service;
 }
 
-export default function ServiceDetailClient({ service }: { service: Service }) {
+export default function ServiceDetailClient({ service }: Props) {
   const { t } = useTranslation();
-  const emoji = getEmoji({ title: service.title });
+  const emoji = getEmoji({ title: t(`services_data.${service.id}.title`) });
 
   return (
     <div className="min-h-[80vh] flex justify-center items-center px-4">
@@ -22,8 +22,8 @@ export default function ServiceDetailClient({ service }: { service: Service }) {
         <p className="text-gray-600 text-lg mb-6">
           {t(`services_data.${service.id}.description`)}
         </p>
-        <button className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-400 transition">
-          {t("services_data.cta")}
+        <button className="bg-pink-500 text-white px-6 py-2 rounded hover:bg-pink-400 transition">
+          {t(`services_data.${service.id}.cta`)}
         </button>
       </div>
     </div>
