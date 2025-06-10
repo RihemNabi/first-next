@@ -1,10 +1,6 @@
 "use client";
-import { getServerSession } from "next-auth";
-import { authOptions } from "../../pages/api/auth/[...nextauth]";
-import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
 import MessageCard from "../../components/MessageCard";
-import AdminClient from "./AdminClient";
 
 interface Message {
   _id: string;
@@ -14,13 +10,8 @@ interface Message {
   date: string;
 }
 
-export default async function AdminPage() {
+export default function AdminClient() {
   const [messages, setMessages] = useState<Message[]>([]);
-  const session = await getServerSession(authOptions);
-
-  if (!session) {
-    redirect("/login"); // Redirige si pas connecté
-  }
 
   useEffect(() => {
     fetch("/api/contact")
@@ -42,9 +33,7 @@ export default async function AdminPage() {
   };
 
   return (
-    <AdminClient />
-
-    /*<div className="min-h-screen bg-pink-50 p-6">
+    <div className="min-h-screen bg-pink-50 p-6">
       <h1 className="text-3xl font-bold text-center text-pink-700 mb-6">
         Messages reçus
       </h1>
@@ -65,6 +54,6 @@ export default async function AdminPage() {
           ))
         )}
       </div>
-    </div>*/
+    </div>
   );
 }
