@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import MessageCard from "../../components/MessageCard";
 
 interface Message {
@@ -11,6 +12,7 @@ interface Message {
 }
 
 export default function AdminClient() {
+  const { t } = useTranslation();
   const [messages, setMessages] = useState<Message[]>([]);
 
   useEffect(() => {
@@ -35,18 +37,18 @@ export default function AdminClient() {
   return (
     <div className="min-h-screen bg-pink-50 p-6">
       <h1 className="text-3xl font-bold text-center text-pink-700 mb-6">
-        Messages reçus
+        {t("nav_admin")}
       </h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
         {messages.length === 0 ? (
           <p className="col-span-full text-center text-gray-500">
-            Aucun message trouvé.
+            {t("no_messages")}
           </p>
         ) : (
           messages.map((msg) => (
             <MessageCard
-              id={""}
+              id={msg._id}
               key={msg._id}
               {...msg}
               onDelete={handleDelete}

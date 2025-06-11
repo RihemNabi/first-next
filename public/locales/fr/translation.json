@@ -35,5 +35,9 @@
       "description": "Service financier."
     },
     "cta": "Réserver ce service"
-  }
+  },
+
+  "no_messages": "Aucun message trouvé.",
+  "nav_login": "Se connecter",
+  "nav_logout": "Se déconnecter"
 }

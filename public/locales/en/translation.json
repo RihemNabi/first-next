@@ -35,5 +35,9 @@
       "description": "Financial service."
     },
     "cta": "Book this service"
-  }
+  },
+
+  "no_messages": "No message.",
+  "nav_login": "Login",
+  "nav_logout": "Logout"
 }

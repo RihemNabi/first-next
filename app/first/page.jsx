@@ -4,7 +4,6 @@ export default function HelloPage() {
       <h1>🎉 Bienvenue , vous etes maintenant dans la page hello 🎉</h1>
       <p>officiellement sur ma première page Next.js ✨</p>
       <p>Lancement de mon mini-projet </p>
-      <a href="/apropos">contactez-nous</a>
     </div>
   );
 }
