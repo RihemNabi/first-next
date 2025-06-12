@@ -1,18 +1,16 @@
+"use client";
+
 import "./globals.css";
+import "./i18n"; // active i18next pour toute l'app
 import { Geist, Geist_Mono } from "next/font/google";
 import SessionWrapper from "../components/SessionWrapper";
-import Header from "../components/Header";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-
-export const metadata = {
-  title: "Mini-Projet",
-  description: "Projet étudiant en Next.js",
-};
 
 export default function RootLayout({
   children,
@@ -22,10 +20,8 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <SessionWrapper>
-          <Header />
-          {children}
-        </SessionWrapper>
+        <SessionWrapper>{children}</SessionWrapper>
+        <Toaster position="top-right" />
       </body>
     </html>
   );

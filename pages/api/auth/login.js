@@ -1,4 +1,4 @@
-import connectDB from "../../../lib/mongodb";
+import clientPromise from "../../../lib/mongodb";
 import User from "../../../lib/models/user";
 import bcrypt from "bcryptjs";
 
@@ -8,9 +8,9 @@ export default async function handler(req, res) {
   }
 
   try {
-    await connectDB();
-    const { email, password } = req.body;
+    await clientPromise; // ✅ ici on attend juste que Mongo soit prêt
 
+    const { email, password } = req.body;
     console.log("Tentative de connexion...");
     console.log("Email:", email, "Password:", password);
 
@@ -29,7 +29,7 @@ export default async function handler(req, res) {
     console.log("✅ Connexion réussie !");
     return res.status(200).json({ message: "Connexion réussie" });
   } catch (error) {
-    console.error("💥 Erreur côté serveur :", error);
+    console.error("❌ Erreur côté serveur :", error);
     return res.status(500).json({ message: "Erreur interne du serveur" });
   }
 }

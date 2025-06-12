@@ -1,51 +1,80 @@
 "use client";
+
+import Header from "../../components/Header";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
+import { useTranslation } from "react-i18next";
+import Link from "next/link";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();
+  const { t } = useTranslation();
 
-  const handleLogin = async (e) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    const res = await fetch("/api/auth/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
+    const result = await signIn("credentials", {
+      redirect: false,
+      email,
+      password,
+      callbackUrl: "/administration",
     });
-    const data = await res.json();
-
-    if (!res.ok) return setError(data.message);
-    document.cookie = `session_user=${email}; path=/`;
-
-    router.push("/administration");
+    if (!result?.ok) setError(t("errors.invalid_credentials"));
+    else router.push("/administration");
   };
 
   return (
-    <form onSubmit={handleLogin} className="flex flex-col items-center mt-10">
-      <h1 className="text-2xl mb-4">Connexion</h1>
-      {error && <p className="text-red-500 mb-2">{error}</p>}
-      <input
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Email"
-        className="mb-2 p-2 border"
-      />
-      <input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="Mot de passe"
-        className="mb-2 p-2 border"
-      />
-      <button
-        type="submit"
-        className="bg-pink-600 text-white py-2 px-4 rounded"
-      >
-        Se connecter
-      </button>
-    </form>
+    <>
+      <Header />
+
+      <div className="flex justify-center items-start min-h-screen bg-pink-50 pt-24">
+        <form
+          onSubmit={handleLogin}
+          className="flex flex-col items-center bg-white shadow-md rounded p-8 w-full max-w-md"
+        >
+          <h1 className="text-2xl mb-4">{t("login.title")}</h1>
+
+          {error && <p className="text-red-500 mb-2">{t(`errors.${error}`)}</p>}
+
+          <input
+            type="email"
+            placeholder={t("login.email")}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="mb-2 p-2 border rounded w-full"
+            required
+          />
+
+          <input
+            type="password"
+            placeholder={t("login.password")}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="mb-4 p-2 border rounded w-full"
+            required
+          />
+
+          <button
+            type="submit"
+            className="bg-pink-500 text-white px-6 py-2 rounded hover:bg-pink-600 w-full"
+          >
+            {t("login.submit")}
+          </button>
+
+          <p className="mt-4 text-sm text-gray-700 text-center">
+            {t("login.no_account")}{" "}
+            <Link
+              href="/register"
+              className="text-pink-500 underline hover:text-pink-700"
+            >
+              {t("login.register")}
+            </Link>
+          </p>
+        </form>
+      </div>
+    </>
   );
 }

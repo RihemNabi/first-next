@@ -10,11 +10,9 @@ import LanguageSwitcher from "./LanguageSwitcher";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const { data: session, status } = useSession();
-
+  const { t } = useTranslation();
   console.log("⚡️ Session:", session, "Status:", status);
   if (status === "loading") return null; // ou un petit spinner
-
-  const { t } = useTranslation();
 
   return (
     <header className="bg-pink-500 shadow-md">

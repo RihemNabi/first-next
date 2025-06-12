@@ -1,19 +1,36 @@
-import { Service } from "../../../types/service";
+"use client";
+
+import { useTranslation } from "react-i18next";
+import { useParams } from "next/navigation";
 import { services } from "../../../data/services";
+import { Service } from "../../../types/service";
+import Header from "../../../components/Header";
 import ServiceDetailClient from "../../../components/ServiceDetailClient";
 
-interface Props {
-  params: {
-    id: string;
-  };
-}
+export default function ServicesPage() {
+  const { t } = useTranslation();
+  const params = useParams();
 
-export default function ServicesPage({ params }: Props) {
-  const service: Service | undefined = services.find((s) => s.id === params.id);
+  const service: Service | undefined = services.find(
+    (s) => s.id === params?.id
+  );
 
   if (!service) {
-    return <p className="text-red-500 p-6">Service not found.</p>;
+    return (
+      <>
+        <Header />
+        <p className="text-center text-red-500 mt-10">
+          {t("service_not_found")}
+        </p>
+      </>
+    );
   }
 
-  return <ServiceDetailClient service={service} />;
+  return (
+    <>
+      <Header />
+      <h1 className="text-2xl font-bold text-pink-700 mb-4">{service.title}</h1>
+      <ServiceDetailClient service={service} />
+    </>
+  );
 }

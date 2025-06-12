@@ -6,5 +6,5 @@ export default function getEmoji({ title }: { title: string }) {
   if (lower.includes("audit") || lower.includes("conseil")) return "🔍";
   if (lower.includes("finance")) return "💸";
 
-  return "✨"; // par défaut
+  return "✨";
 }

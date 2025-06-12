@@ -1,25 +1,53 @@
-import NextAuth from "next-auth";
-import GoogleProvider from "next-auth/providers/google";
-import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
-import clientPromise from "../../../lib/mongodb";
+import NextAuth, { NextAuthOptions } from "next-auth";
+import CredentialsProvider from "next-auth/providers/credentials";
+import connectDB from "../../../lib/mongodb";
+import User from "../../../lib/models/user";
+import bcrypt from "bcryptjs";
 
-export const authOptions = {
-  adapter: MongoDBAdapter(clientPromise),
+export const authOptions: NextAuthOptions = {
+  session: { strategy: "jwt" },
+  secret: process.env.NEXTAUTH_SECRET,
   providers: [
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+    CredentialsProvider({
+      name: "credentials",
+      credentials: {
+        email: { label: "Email", type: "text" },
+        password: { label: "Password", type: "password" },
+      },
+      async authorize(credentials) {
+        await connectDB();
+        const user = await User.findOne({ email: credentials?.email });
+        if (!user) throw new Error("Utilisateur introuvable");
+
+        const isMatch = await bcrypt.compare(
+          credentials!.password,
+          user.password
+        );
+        if (!isMatch) throw new Error("Mot de passe incorrect");
+
+        return { id: user.id.toString(), email: user.email };
+      },
     }),
   ],
-  secret: process.env.NEXTAUTH_SECRET,
-
-  // 👇 Ceci est ESSENTIEL pour les redirections correctes
-  pages: {
-    signIn: "/login", // page de connexion personnalisée
-    signOut: "/login", // redirection après logout
-    error: "/login", // redirection en cas d'erreur
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id;
+        token.email = user.email;
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      if (token) {
+        session.user = {
+          id: token.id as string,
+          email: token.email as string,
+        };
+      }
+      return session;
+    },
   },
+  pages: { signIn: "/login", error: "/login" },
 };
 
-const handler = NextAuth(authOptions);
-export default handler;
+export default NextAuth(authOptions);

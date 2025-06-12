@@ -22,22 +22,89 @@
   "services_title": "Nos Services",
   "fetch_error": "Impossible de charger les services",
   "services_data": {
-    "1": {
+    "web": {
       "title": "Développement Web",
-      "description": "Création de sites web modernes."
+      "description": "Création de sites web modernes.",
+      "cta": "Réserver ce service"
     },
-    "2": {
+    "maintenance": {
       "title": "Maintenance",
-      "description": "Support technique continu."
+      "description": "Support technique continu.",
+      "cta": "Réserver ce service"
     },
-    "3": {
+    "inance": {
       "title": "Finance",
-      "description": "Service financier."
-    },
-    "cta": "Réserver ce service"
+      "description": "Service financier.",
+      "cta": "Réserver ce service"
+    }
   },
+  "services_data.confirmation": "Service réservé avec succès ✅",
 
+  "discover_button": "Découvrir",
   "no_messages": "Aucun message trouvé.",
   "nav_login": "Se connecter",
-  "nav_logout": "Se déconnecter"
+  "nav_logout": "Se déconnecter",
+  "login": {
+    "title": "Connexion",
+    "email": "Email",
+    "password": "Mot de passe",
+    "submit": "Se connecter"
+  },
+  "errors": {
+    "Utilisateur non trouvé": "Utilisateur non trouvé",
+    "Mot de passe incorrect": "Mot de passe incorrect",
+    "Erreur interne du serveur": "Erreur interne du serveur"
+  },
+  "register_title": "Créer un compte",
+  "email": "Email",
+  "password": "Mot de passe",
+  "register": "S’inscrire",
+  "already_account": "Vous avez déjà un compte ?",
+  "login-re": "Se connecter",
+  "contact_title": "Contactez-moi",
+  "contact_description": "Vous pouvez me joindre à :",
+  "contact_visit": "Ou passer me voir à",
+  "contact_form": {
+    "title": "Formulaire de contact",
+    "name": "Nom",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Envoyer"
+  },
+  "contact_success": "Message envoyé avec succès !",
+  "reclam-confirmation": "📩 Votre réclamation a été envoyée !",
+  "reclam": "je veux faire une réclamation",
+  "autre": {
+    "title": "Autres infos",
+    "useful_links": "Liens utiles",
+    "source_code": "Code source",
+    "live_project": "Projet en ligne",
+    "resources_title": "Ressources étudiées",
+    "resource_docs": "Documentation officielle :",
+    "resource_videos": "Vidéos pédagogiques sur YouTube concernant Next.js et Node.js",
+    "resource_git": "Pratique de Git & GitHub pour la gestion de version et Vercel pour le déploiement",
+    "resource_errors": "Résolution d'erreurs en environnement réel",
+    "mini_project_1": "Ce mini-projet s’agit d’un tout petit projet de test/apprentissage, conçu pour expérimenter et progresser à mon rythme.",
+    "mini_project_2": "m’a permis de développer mes compétences, de résoudre des erreurs réelles et de me sentir plus à l’aise avec les outils mentionnés",
+    "any_question": "Pour toute question,",
+    "contact_us": "contactez-nous"
+  },
+  "admin": {
+    "admin.loading": "Chargement...",
+    "title": "Tableau de bord admin",
+    "search": "Rechercher par nom, email ou message...",
+    "no_messages": "Aucun message trouvé."
+  },
+  "delete-msg": "Supprimer",
+  "login.register": "S'inscrire'",
+  "login.no_account": " Pas encore de compte ?",
+  "messages": {
+    "confirm_delete": "Voulez-vous vraiment supprimer le message de {{name}} ?",
+    "deleted": "Message de {{name}} supprimé avec succès !"
+  },
+  "actions": {
+    "delete": "Supprimer"
+  },
+  "yes": "Oui",
+  "no": "Annuler"
 }

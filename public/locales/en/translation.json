@@ -22,22 +22,90 @@
   "services_title": "Our Services",
   "fetch_error": "Failed to load services",
   "services_data": {
-    "1": {
+    "web": {
       "title": "Web Development",
-      "description": "Creating modern websites."
+      "description": "Creating modern websites.",
+      "cta": "Book this service"
     },
-    "2": {
+    "maintenance": {
       "title": "Maintenance",
-      "description": "Ongoing technical support."
+      "description": "Ongoing technical support.",
+      "cta": "Contact support"
     },
-    "3": {
+    "finance": {
       "title": "Finance",
-      "description": "Financial service."
-    },
-    "cta": "Book this service"
+      "description": "Financial service.",
+      "cta": "Get consultation"
+    }
   },
+  "services_data.confirmation": "Service successfully booked ✅",
 
+  "discover_button": "Discover more",
   "no_messages": "No message.",
   "nav_login": "Login",
-  "nav_logout": "Logout"
+  "nav_logout": "Logout",
+
+  "login": {
+    "title": "Login",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Sign in"
+  },
+  "errors": {
+    "Utilisateur non trouvé": "User not found",
+    "Mot de passe incorrect": "Incorrect password",
+    "Erreur interne du serveur": "Internal server error"
+  },
+  "register_title": "Create an account",
+  "email": "Email",
+  "password": "Password",
+  "register": "Register",
+  "already_account": "Already have an account?",
+  "login-re": "Login",
+  "contact_title": "Contact me",
+  "contact_description": "You can reach me at:",
+  "contact_visit": "Or visit me at",
+  "contact_form": {
+    "title": "Contact form",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Send"
+  },
+  "contact_success": "Message sent successfully!",
+  "reclam": "send a reclamation",
+  "reclam-confirmation": "📩 your reclamation is sent successfuly!",
+  "autre": {
+    "title": "Other info",
+    "useful_links": "Useful links",
+    "source_code": "Source code",
+    "live_project": "Live project",
+    "resources_title": "Resources studied",
+    "resource_docs": "Official documentation:",
+    "resource_videos": "Educational videos on YouTube about Next.js and Node.js",
+    "resource_git": "Practice using Git & GitHub for version control and Vercel for deployment",
+    "resource_errors": "Solving errors in a real environment",
+    "mini_project_1": "This mini-project is a small test/learning project designed to experiment and progress at my own pace.",
+    "mini_project_2": "It helped me improve my skills, solve real bugs, and feel more confident with the mentioned tools.",
+    "any_question": "For any questions,",
+    "contact_us": "contact us"
+  },
+  "admin": {
+    "admin.loading": "Loading...",
+    "title": "Admin Dashboard",
+    "search": "Search by name, email or message...",
+    "no_messages": "No messages found."
+  },
+  "delete-msg": "Delete",
+  "login.register": "Subscribe",
+  "login.no_account": "No account yet ?",
+  "messages": {
+    "confirm_delete": "Are you sure you want to delete {{name}}'s message?",
+    "deleted": "Message from {{name}} successfully deleted!"
+  },
+  "actions": {
+    "delete": "Delete"
+  },
+  "yes": "Yes",
+  "no": "Cancel"
 }

@@ -1,7 +1,19 @@
 import { Service } from "../types/service";
 
 export const services: Service[] = [
-  { id: "1", title: "Web", description: "Développement de sites." },
-  { id: "2", title: "Maintenance", description: "Support technique." },
-  { id: "3", title: "Finance", description: "Services financiers." },
+  {
+    id: "web",
+    title: "Web",
+    description: "Développement de sites et d'applications web modernes.",
+  },
+  {
+    id: "maintenance",
+    title: "Maintenance",
+    description: "Support technique, mises à jour et résolution d’incidents.",
+  },
+  {
+    id: "finance",
+    title: "Finance",
+    description: "Services financiers et de gestion pour votre entreprise.",
+  },
 ];
