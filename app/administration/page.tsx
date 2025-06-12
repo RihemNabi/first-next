@@ -38,7 +38,7 @@ export default function AdminPage() {
   }
 
   if (!authorized) {
-    return null; //
+    return null;
   }
 
   return (

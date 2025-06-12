@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+
 import React from "react";
 import { toast } from "react-hot-toast";
 import { useTranslation } from "react-i18next";
