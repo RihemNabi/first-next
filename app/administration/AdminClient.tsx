@@ -79,7 +79,7 @@ export default function AdminClient() {
               id={msg._id}
               key={msg._id}
               {...msg}
-              onDelete={handleDelete}
+              onDeleteAction={handleDelete}
             />
           ))
         )}

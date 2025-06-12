@@ -57,8 +57,8 @@ export default function RegisterPage() {
 
         <p className="mt-4">
           {t("already_account")}
-          <Link href="/login-re" className="text-pink-500 underline ml-1">
-            {t("login")}
+          <Link href="/login" className="text-pink-500 underline ml-1">
+            {t("login-re")}
           </Link>
         </p>
       </div>

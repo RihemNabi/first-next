@@ -10,7 +10,7 @@ interface Props {
   email: string;
   message: string;
   date: string;
-  onDelete: (id: string) => void;
+  onDeleteAction: (id: string) => void;
 }
 
 export default function MessageCard({
@@ -19,7 +19,7 @@ export default function MessageCard({
   email,
   message,
   date,
-  onDelete,
+  onDeleteAction,
 }: Props) {
   const { t } = useTranslation();
 
@@ -34,7 +34,7 @@ export default function MessageCard({
             <button
               onClick={() => {
                 toast.dismiss(toastInstance.id);
-                onDelete(id);
+                onDeleteAction(id);
                 toast.success(t("messages.deleted", { name }));
               }}
               className="bg-red-500 text-white px-3 py-1 rounded"
