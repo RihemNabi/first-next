@@ -1,7 +1,7 @@
 "use client";
 
 import "./globals.css";
-import "./i18n"; // active i18next pour toute l'app
+import "./i18n";
 import { Geist, Geist_Mono } from "next/font/google";
 import SessionWrapper from "../components/SessionWrapper";
 import { Toaster } from "react-hot-toast";

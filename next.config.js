@@ -1,9 +1,8 @@
-import { i18n } from "./next-i18next.config.js";
+import { i18n } from "./next-i18next.config";
 
 const nextConfig = {
-  experimental: {
-    serverComponentsExternalPackages: ["@next-auth/mongodb-adapter"],
-  },
+  experimental: {},
+  serverExternalPackages: ["@next-auth/mongodb-adapter"],
   i18n,
 };
 
