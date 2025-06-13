@@ -6,12 +6,17 @@ import { services } from "../../../data/services";
 import { Service } from "../../../types/service";
 import Header from "../../../components/Header";
 import ServiceDetailClient from "../../../components/ServiceDetailClient";
-import type { Metadata } from "next";
-import { Props } from "next/script";
-
-export default function ServicesPage({ params }: { params: { id: string } }) {
+export default function ServicesPage() {
   const { t } = useTranslation();
-  const service: Service | undefined = services.find((s) => s.id === params.id);
+  const params = useParams();
+  const id =
+    typeof params?.id === "string"
+      ? params.id
+      : Array.isArray(params?.id)
+        ? params.id[0]
+        : "";
+
+  const service: Service | undefined = services.find((s) => s.id === id);
 
   if (!service) {
     return (
