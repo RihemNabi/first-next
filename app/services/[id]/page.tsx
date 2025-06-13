@@ -6,16 +6,15 @@ import { services } from "../../../data/services";
 import { Service } from "../../../types/service";
 import Header from "../../../components/Header";
 import ServiceDetailClient from "../../../components/ServiceDetailClient";
+import type { Metadata } from "next";
+import { Props } from "next/script";
 
-type Props = {
-  params: {
-    id: string;
-  };
-};
+interface PageProps {
+  params: { id: string };
+}
 
-export default function ServicesPage({ params }: Props) {
+export default function ServicesPage({ params }: PageProps) {
   const { t } = useTranslation();
-
   const service: Service | undefined = services.find((s) => s.id === params.id);
 
   if (!service) {
