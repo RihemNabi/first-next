@@ -8,7 +8,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    await clientPromise; // ✅ ici on attend juste que Mongo soit prêt
+    clientPromise;
 
     const { email, password } = req.body;
     console.log("Tentative de connexion...");

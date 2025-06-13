@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 import mongoose from "mongoose";
 import Message from "../../../lib/models/message";
 
-// Connexion MongoDB
 async function connectToDB() {
   if (mongoose.connections[0].readyState === 0) {
     await mongoose.connect(process.env.MONGODB_URI, {
@@ -12,7 +11,6 @@ async function connectToDB() {
   }
 }
 
-/** POST: Ajouter un message */
 export async function POST(request) {
   try {
     await connectToDB();
@@ -38,7 +36,6 @@ export async function POST(request) {
   }
 }
 
-/** GET: Afficher les messages */
 export async function GET() {
   try {
     await connectToDB();
@@ -53,7 +50,6 @@ export async function GET() {
   }
 }
 
-/** DELETE: Supprimer un message */
 export async function DELETE(request) {
   try {
     await connectToDB();

@@ -7,13 +7,16 @@ import { Service } from "../../../types/service";
 import Header from "../../../components/Header";
 import ServiceDetailClient from "../../../components/ServiceDetailClient";
 
-export default function ServicesPage() {
-  const { t } = useTranslation();
-  const params = useParams();
+type Props = {
+  params: {
+    id: string;
+  };
+};
 
-  const service: Service | undefined = services.find(
-    (s) => s.id === params?.id
-  );
+export default function ServicesPage({ params }: Props) {
+  const { t } = useTranslation();
+
+  const service: Service | undefined = services.find((s) => s.id === params.id);
 
   if (!service) {
     return (

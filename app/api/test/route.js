@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
-    const clientPromise = (await import("../../lib/mongodb")).default;
+    const clientPromise = (await import("../../../lib/mongodb")).default;
     const client = await clientPromise;
     const db = client.db("MiniProjetDB");
 
