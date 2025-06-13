@@ -9,11 +9,7 @@ import ServiceDetailClient from "../../../components/ServiceDetailClient";
 import type { Metadata } from "next";
 import { Props } from "next/script";
 
-interface PageProps {
-  params: { id: string };
-}
-
-export default function ServicesPage({ params }: PageProps) {
+export default function ServicesPage({ params }: { params: { id: string } }) {
   const { t } = useTranslation();
   const service: Service | undefined = services.find((s) => s.id === params.id);
 
