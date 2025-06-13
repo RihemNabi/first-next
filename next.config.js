@@ -1,4 +1,4 @@
-import { i18n } from "./next-i18next.config";
+import { i18n } from "./next-i18next.config.js";
 
 const nextConfig = {
   experimental: {},
